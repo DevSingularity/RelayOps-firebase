@@ -284,7 +284,7 @@ export default function AuthPage() {
                 <Button
                   type="submit"
                   loading={loading}
-                  disabled={!isSignupEmailValid}
+                  disabled={!isSignupEmailValid || signupData.password === ""}
                   className="w-full mt-4"
                 >
                   Create account
