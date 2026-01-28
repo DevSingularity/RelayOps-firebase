@@ -7,7 +7,7 @@ import ThemeProvider from './components/theme/ThemeProvider.jsx'
 import Layout from './components/layout/Layout';
 
 // Pages
-import {Landing, AuthPage, ForgotPassword, ResetPassword, Home } from './pages/index'
+import {Landing, AuthPage, ForgotPassword, ResetPassword, Dashboard } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -21,7 +21,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/auth" />;
 };
 
 // Public Route Component (redirect to dashboard if already authenticated)
@@ -36,7 +36,7 @@ const PublicRoute = ({ children }) => {
     );
   }
 
-  return !isAuthenticated ? children : <Navigate to="/home" />;
+  return !isAuthenticated ? children : <Navigate to="/dashboard" />;
 };
 
 function AppRoutes() {
@@ -78,7 +78,7 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route path="home" element={<Home />} />
+        <Route path="dashboard" element={<Dashboard />} />
         {/* Add more routes */}
       </Route>
 
