@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 import { Outlet } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-// import { loadTheme } from '../features/themeSlice'
+import { loadTheme } from '../../store'
 import { Loader2Icon } from 'lucide-react'
 
 const Layout = () => {
@@ -12,9 +12,9 @@ const Layout = () => {
     const dispatch = useDispatch()
 
     // Initial load of theme
-    // useEffect(() => {
-    //     dispatch(loadTheme())
-    // }, [])
+    useEffect(() => {
+        dispatch(loadTheme())
+    }, [])
 
     if (loading) return (
         <div className='flex items-center justify-center h-screen bg-white dark:bg-zinc-950'>

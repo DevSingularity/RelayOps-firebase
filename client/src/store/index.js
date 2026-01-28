@@ -2,7 +2,7 @@
 export { default as store } from "./store.js";
 
 // Theme Slice
-export { toggleTheme, setTheme } from "./slices/themeSlice.js";
+export { toggleTheme, setTheme, loadTheme } from "./slices/themeSlice.js";
 export { default as themeReducer } from "./slices/themeSlice.js";
 
 // API Slice
