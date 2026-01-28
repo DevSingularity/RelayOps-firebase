@@ -1,13 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import ThemeProvider from './components/theme/ThemeProvider.jsx'
 
-// Layout
-import Layout from './components/layout/Layout';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider, Layout } from './components';
 
 // Pages
-import {Landing, Login, Signup, Home } from './pages/index'
+import { Landing, AuthPage, ForgotPassword, ResetPassword, Dashboard, Projects, ProjectDetails, Team, TaskDetails, Settings, Profile } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -21,7 +18,7 @@ const ProtectedRoute = ({ children }) => {
     );
   }
 
-  return isAuthenticated ? children : <Navigate to="/login" />;
+  return isAuthenticated ? children : <Navigate to="/auth" />;
 };
 
 // Public Route Component (redirect to dashboard if already authenticated)
@@ -36,7 +33,7 @@ const PublicRoute = ({ children }) => {
     );
   }
 
-  return !isAuthenticated ? children : <Navigate to="/home" />;
+  return !isAuthenticated ? children : <Navigate to="/dashboard" />;
 };
 
 function AppRoutes() {
@@ -45,18 +42,26 @@ function AppRoutes() {
       {/* Public Routes */}
       <Route path="/" element={<Landing />} />
       <Route
-        path="/login"
+        path="/auth"
         element={
           <PublicRoute>
-            <Login />
+            <AuthPage />
           </PublicRoute>
         }
       />
       <Route
-        path="/signup"
+        path="/forgot-password"
         element={
           <PublicRoute>
-            <Signup />
+            <ForgotPassword />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/reset-password"
+        element={
+          <PublicRoute>
+            <ResetPassword />
           </PublicRoute>
         }
       />
@@ -70,7 +75,13 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       >
-        <Route path="home" element={<Home />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="projectsDetail" element={<ProjectDetails />} />
+        <Route path="team" element={<Team />} />
+        <Route path="taskDetails" element={<TaskDetails />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="profile" element={<Profile />} />
         {/* Add more routes */}
       </Route>
 

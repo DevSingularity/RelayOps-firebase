@@ -1,8 +1,8 @@
-// Gives the user a button to toggle between light and dark themes.
-import { IconButton, Tooltip } from "@mui/material";
-import { Sun, Moon } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleTheme } from "../../store/slices/themeSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { IconButton, Tooltip } from '@mui/material';
+import { Sun, Moon } from 'lucide-react';
+
+import { toggleTheme } from '../../store';
 
 export default function ThemeToggle() {
   const dispatch = useDispatch();

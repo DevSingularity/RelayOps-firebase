@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+
 import { authAPI, userAPI } from '../services/api';
 
 const AuthContext = createContext(null);
@@ -87,12 +88,53 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const googleLogin = async () => {
+    try {
+      const response = await authAPI.googleLogin();
+      const { accessToken, user: userData } = response.data.data;
+
+      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('user', JSON.stringify(userData));
+      setUser(userData);
+
+      return { success: true, user: userData };
+    } catch (error) {
+      const message = error.response?.data?.message || 'Google login failed';
+      return { success: false, error: message };
+    }
+  };
+
+  const forgotPassword = async (email) => {
+    try {
+      await authAPI.forgotPassword(email);
+      return { success: true };
+    } catch (error) {
+      const message =
+        error.response?.data?.message || 'Failed to send reset email';
+      return { success: false, error: message };
+    }
+  };
+
+  const resetPassword = async (token, newPassword) => {
+    try {
+      await authAPI.resetPassword(token, newPassword);
+      return { success: true };
+    } catch (error) {
+      const message =
+        error.response?.data?.message || 'Invalid or expired reset link';
+      return { success: false, error: message };
+    }
+  };
+
 
   const value = {
     user,
     login,
     signup,
     logout,
+    googleLogin,
+    forgotPassword,
+    resetPassword,
     loading,
     isAuthenticated: !!user,
     isAdmin: user?.role === 'MANAGER',
@@ -100,7 +142,6 @@ export const AuthProvider = ({ children }) => {
     isTechnician: user?.role === 'TECHNICIAN',
     isUser: user?.role === 'USER',
   };
-
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
