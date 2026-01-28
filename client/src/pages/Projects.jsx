@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Plus, Search, FolderOpen } from "lucide-react";
-import { ProjectCard, CreateProjectDialog } from "../components";
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Plus, Search, FolderOpen } from 'lucide-react';
+
+import { ProjectCard, CreateProjectDialog } from '../components';
 
 export default function Projects() {
     

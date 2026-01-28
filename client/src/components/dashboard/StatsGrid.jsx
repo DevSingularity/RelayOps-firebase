@@ -1,6 +1,6 @@
-import { FolderOpen, CheckCircle, Users, AlertTriangle } from "lucide-react";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { FolderOpen, CheckCircle, Users, AlertTriangle } from 'lucide-react';
 
 export default function StatsGrid() {
     const currentWorkspace = useSelector(

@@ -1,9 +1,4 @@
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select as MuiSelect,
-} from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select as MuiSelect } from '@mui/material';
 
 export function Select({ label, options, ...props }) {
   return (

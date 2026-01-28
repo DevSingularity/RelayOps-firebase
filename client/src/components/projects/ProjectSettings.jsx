@@ -1,7 +1,8 @@
-import { format } from "date-fns";
-import { Plus, Save } from "lucide-react";
-import { useEffect, useState } from "react";
-import AddProjectMember from "./AddProjectMember";
+import { useEffect, useState } from 'react';
+import { format } from 'date-fns';
+import { Plus, Save } from 'lucide-react';
+
+import AddProjectMember from './AddProjectMember';
 
 export default function ProjectSettings({ project }) {
 

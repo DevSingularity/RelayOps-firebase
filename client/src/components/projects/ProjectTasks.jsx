@@ -1,10 +1,11 @@
-import { format } from "date-fns";
-import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
-import { useState, useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import { deleteTask, updateTask } from "../../store";
-import { Bug, CalendarIcon, GitCommit, MessageSquare, Square, Trash, XIcon, Zap } from "lucide-react";
+import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { format } from 'date-fns';
+import toast from 'react-hot-toast';
+import { Bug, CalendarIcon, GitCommit, MessageSquare, Square, Trash, XIcon, Zap } from 'lucide-react';
+
+import { deleteTask, updateTask } from '../../store';
 
 const typeIcons = {
     BUG: { icon: Bug, color: "text-red-600 dark:text-red-400" },

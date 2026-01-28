@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import { UsersIcon, Search, UserPlus, Shield, Activity } from "lucide-react";
-import { InviteMemberDialog } from "../components";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { UsersIcon, Search, UserPlus, Shield, Activity } from 'lucide-react';
+
+import { InviteMemberDialog } from '../components';
 
 const Team = () => {
 

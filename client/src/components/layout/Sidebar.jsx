@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom'
-import MyTasksSidebar from './MyTasksSidebar'
-import ProjectSidebar from './ProjectsSidebar'
-import WorkspaceDropdown from '../dashboard/WorkspaceDropdown'
-import { FolderOpenIcon, LayoutDashboardIcon, SettingsIcon, UsersIcon } from 'lucide-react'
+import { useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
+import { FolderOpenIcon, LayoutDashboardIcon, SettingsIcon, UsersIcon } from 'lucide-react';
+
+import MyTasksSidebar from './MyTasksSidebar';
+import ProjectSidebar from './ProjectsSidebar';
+import WorkspaceDropdown from '../dashboard/WorkspaceDropdown';
 
 const Sidebar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 

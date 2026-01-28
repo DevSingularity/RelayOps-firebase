@@ -1,10 +1,11 @@
-import { SearchIcon, PanelLeft, LogOut, User } from 'lucide-react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
-import { assets } from '../../assets/assets'
-import ThemeToggle from '../theme/ThemeToggle'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { SearchIcon, PanelLeft, LogOut, User } from 'lucide-react';
+
+import { useAuth } from '../../contexts/AuthContext';
+import { assets } from '../../assets/assets';
+import ThemeToggle from '../theme/ThemeToggle';
 
 const Navbar = ({ setIsSidebarOpen }) => {
 

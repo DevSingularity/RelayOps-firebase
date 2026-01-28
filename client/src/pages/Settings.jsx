@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Bell, Lock, Settings as SettingsIcon, Check } from 'lucide-react';
-import { Button, Input } from '../components';
+
 import { updateUserSettings } from '../store';
 
 const Settings = () => {

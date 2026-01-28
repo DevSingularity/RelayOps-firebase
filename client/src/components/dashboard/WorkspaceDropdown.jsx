@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from "react";
-import { ChevronDown, Check, Plus } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
-import { setCurrentWorkspace } from "../../store";
-import { useNavigate } from "react-router-dom";
-import { dummyWorkspaces } from "../../assets/assets";
+import { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ChevronDown, Check, Plus } from 'lucide-react';
+
+import { setCurrentWorkspace } from '../../store';
+import { dummyWorkspaces } from '../../assets/assets';
 
 function WorkspaceDropdown() {
 

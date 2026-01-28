@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Mail } from "lucide-react";
-import { useAuth } from "../../contexts/AuthContext";
-import { Input, Button, Logo } from "../../components";
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Mail } from 'lucide-react';
+
+import { useAuth } from '../../contexts/AuthContext';
+import { Input, Button, Logo } from '../../components';
 
 export default function ForgotPassword() {
   const { forgotPassword } = useAuth();

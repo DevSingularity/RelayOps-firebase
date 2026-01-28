@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { ArrowRight, Clock, AlertTriangle, User } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { ArrowRight, Clock, AlertTriangle, User } from 'lucide-react';
 
 export default function TasksSummary() {
 

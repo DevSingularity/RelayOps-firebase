@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Mail, UserPlus } from "lucide-react";
-import { useSelector } from "react-redux";
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Mail, UserPlus } from 'lucide-react';
 
 const InviteMemberDialog = ({ isDialogOpen, setIsDialogOpen }) => {
 

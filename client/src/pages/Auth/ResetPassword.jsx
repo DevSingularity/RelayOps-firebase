@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import { Lock } from "lucide-react";
-import { useSearchParams, useNavigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContext";
-import { Input, Button, Logo } from "../../components";
+import { useState } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { Lock } from 'lucide-react';
+
+import { useAuth } from '../../contexts/AuthContext';
+import { Input, Button, Logo } from '../../components';
 
 export default function ResetPassword() {
   const { resetPassword } = useAuth();

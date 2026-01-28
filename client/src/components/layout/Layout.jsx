@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
-import { Outlet } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { loadTheme } from '../../store'
-import { Loader2Icon } from 'lucide-react'
+import { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Loader2Icon } from 'lucide-react';
+
+import { loadTheme } from '../../store';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 const Layout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)

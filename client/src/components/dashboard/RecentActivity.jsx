@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { GitCommit, MessageSquare, Clock, Bug, Zap, Square } from "lucide-react";
-import { format } from "date-fns";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { format } from 'date-fns';
+import { useSelector } from 'react-redux';
+import { GitCommit, MessageSquare, Clock, Bug, Zap, Square } from 'lucide-react';
 
 const typeIcons = {
     BUG: { icon: Bug, color: "text-red-500 dark:text-red-400" },

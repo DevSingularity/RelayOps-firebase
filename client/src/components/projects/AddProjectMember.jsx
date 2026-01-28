@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Mail, UserPlus } from "lucide-react";
-import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Mail, UserPlus } from 'lucide-react';
 
 const AddProjectMember = ({ isDialogOpen, setIsDialogOpen }) => {
 

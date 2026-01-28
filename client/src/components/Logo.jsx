@@ -1,5 +1,4 @@
-import React from "react";
-import logoSrc from "../assets/logo.png";
+import logoSrc from '../assets/logo.png';
 
 const Logo = ({ className }) => {
   return (

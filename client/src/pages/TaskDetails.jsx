@@ -1,10 +1,11 @@
-import { format } from "date-fns";
-import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { CalendarIcon, MessageCircle, PenIcon } from "lucide-react";
-import { assets } from "../assets/assets";
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { format } from 'date-fns';
+import toast from 'react-hot-toast';
+import { CalendarIcon, MessageCircle, PenIcon } from 'lucide-react';
+
+import { assets } from '../assets/assets';
 
 const TaskDetails = () => {
 

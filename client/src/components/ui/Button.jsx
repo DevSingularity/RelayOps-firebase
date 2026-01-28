@@ -1,5 +1,5 @@
-import { Button as MuiButton, CircularProgress } from "@mui/material";
-import clsx from "clsx";
+import { Button as MuiButton, CircularProgress } from '@mui/material';
+import clsx from 'clsx';
 
 const variants = {
   primary: `

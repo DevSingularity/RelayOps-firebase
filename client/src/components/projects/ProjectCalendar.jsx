@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { format, isSameDay, isBefore, startOfMonth, endOfMonth, eachDayOfInterval, addMonths, subMonths } from "date-fns";
-import { CalendarIcon, Clock, User, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from 'react';
+import { format, isSameDay, isBefore, startOfMonth, endOfMonth, eachDayOfInterval, addMonths, subMonths } from 'date-fns';
+import { CalendarIcon, Clock, User, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const typeColors = {
     BUG: "bg-red-200 text-red-800 dark:bg-red-500 dark:text-red-900",

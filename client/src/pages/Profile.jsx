@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { User, Mail, Calendar, LogOut } from 'lucide-react';
+
 import { useAuth } from '../contexts/AuthContext';
 import { dummyUsers } from '../assets/assets';
-import { User, Mail, Calendar, LogOut } from 'lucide-react';
 
 const Profile = () => {
   const navigate = useNavigate();

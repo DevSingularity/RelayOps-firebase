@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import { CheckCircle, Clock, AlertTriangle, Users, ArrowRightIcon } from "lucide-react";
+import { useMemo } from 'react';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { CheckCircle, Clock, AlertTriangle, Users, ArrowRightIcon } from 'lucide-react';
 
 // Colors for charts and priorities
 const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
