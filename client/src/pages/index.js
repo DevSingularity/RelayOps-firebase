@@ -6,5 +6,6 @@ import Dashboard from './Dashboard'
 import Projects from './Projects'
 import ProjectDetails from './ProjectDetails'
 import Team from './Team'
+import TaskDetails from './TaskDetails'
 
-export { Landing, AuthPage, ForgotPassword, ResetPassword, Dashboard, Projects, ProjectDetails, Team };
+export { Landing, AuthPage, ForgotPassword, ResetPassword, Dashboard, Projects, ProjectDetails, Team, TaskDetails };
