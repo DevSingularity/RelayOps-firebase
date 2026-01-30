@@ -4,7 +4,7 @@ import { useAuth } from './firebase/auth';
 import { ThemeProvider, Layout } from './components';
 
 // Pages
-import { Landing, AuthPage, ForgotPassword, ResetPassword, Dashboard, Projects, ProjectDetails, Team, TaskDetails, Settings, Profile } from './pages/index'
+import { Landing, AuthPage, ForgotPassword, Dashboard, Projects, ProjectDetails, Team, TaskDetails, Settings, Profile } from './pages/index'
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -54,14 +54,6 @@ function AppRoutes() {
         element={
           <PublicRoute>
             <ForgotPassword />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/reset-password"
-        element={
-          <PublicRoute>
-            <ResetPassword />
           </PublicRoute>
         }
       />
