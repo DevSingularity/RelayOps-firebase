@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail, Lock, User } from 'lucide-react';
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../firebase/auth';
 import { Logo, Input, Button } from '../../components';
 
 export default function AuthPage() {
   const navigate = useNavigate();
-  const { login, signup, signInWithGoogle } = useAuth();
+  const { login, signup, signInWithGoogle, sendSignInLinkToEmail, handleEmailLinkSignIn } = useAuth();
 
   const [isSignup, setIsSignup] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -73,6 +73,48 @@ export default function AuthPage() {
     }
   };
 
+  /* ---------------- EMAIL LINK SIGN-IN ---------------- */
+  const handleSendSignInLink = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      const res = await sendSignInLinkToEmail(loginData.email);
+      if (res.success) navigate("/check-email");
+      else setError(res.error || "Failed to send sign-in link. Please try again.");
+    } catch (err) {
+      setError(err.message || "Failed to send sign-in link. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /* Automatically handle incoming email-link sign-ins */
+  useEffect(() => {
+    const tryCompleteEmailLink = async () => {
+      // attempt to complete sign-in if current URL is an email sign-in link
+      const res = await handleEmailLinkSignIn();
+      if (res.success) {
+        navigate('/dashboard');
+        return;
+      }
+
+      // If missing stored email, prompt the user to enter it to finish sign-in
+      if (res.error && res.error.toLowerCase().includes('missing email')) {
+        const prompted = window.prompt('Enter the email you used to sign in:');
+        if (prompted) {
+          const res2 = await handleEmailLinkSignIn(prompted);
+          if (res2.success) navigate('/dashboard');
+          else setError(res2.error || 'Email link sign-in failed');
+        }
+      }
+    };
+
+    // run once on mount
+    tryCompleteEmailLink();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] px-4">
       <div className="relative w-full max-w-6xl h-[620px] rounded-2xl overflow-hidden bg-[var(--color-surface)] shadow-[var(--box-shadow-card)]">
@@ -131,7 +173,6 @@ export default function AuthPage() {
                 Continue with Google
               </Button>
 
-
               <form onSubmit={handleLogin} className="space-y-5 mt-4">
                 <Input
                   label="Email address"
@@ -170,7 +211,6 @@ export default function AuthPage() {
                   </Button>
                 </div>
 
-
                 <Button
                   type="submit"
                   loading={loading}
@@ -180,6 +220,32 @@ export default function AuthPage() {
                   Sign in
                 </Button>
               </form>
+
+              <div className="mt-4 text-center text-sm text-[var(--color-text-secondary)]">
+                <span>Or sign in with</span>
+              </div>
+
+              <Button
+                variant="outlined"
+                color="primary"
+                fullWidth
+                onClick={async () => {
+                  setError("");
+                  setLoading(true);
+                  try {
+                    const res = await sendSignInLinkToEmail(loginData.email);
+                    if (res.success) navigate("/check-email");
+                    else setError(res.error || "Failed to send sign-in link. Please try again.");
+                  } catch (err) {
+                    setError(err.message || "Failed to send sign-in link. Please try again.");
+                  } finally {
+                    setLoading(false);
+                  }
+                }}
+                className="mt-2"
+              >
+                Send sign-in link to email
+              </Button>
             </div>
 
             {/* SIGN UP */}
@@ -226,7 +292,6 @@ export default function AuthPage() {
                 </svg>
                 Continue with Google
               </Button>
-
 
               <form onSubmit={handleSignup} className="space-y-4 mt-4">
                 <Input
