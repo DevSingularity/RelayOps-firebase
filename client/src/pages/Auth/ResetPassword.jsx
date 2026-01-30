@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../firebase/auth';
 import { Input, Button, Logo } from '../../components';
 
 export default function ResetPassword() {
@@ -19,25 +19,17 @@ export default function ResetPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-
-    if (password.length < 6)
-      return setError("Password must be at least 6 characters");
-
-    if (password !== confirm)
-      return setError("Passwords do not match");
-
     setLoading(true);
-    const result = await resetPassword(token, password);
-
-    if (result.success) {
-      navigate("/");
-    } else {
-      setError(result.error);
+    try {
+        await resetPassword(token, password);
+        alert('Password has been reset successfully!');
+        navigate('/auth');
+    } catch (error) {
+        setError(error.message);
+    } finally {
+        setLoading(false);
     }
-
-    setLoading(false);
-  };
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] px-4">

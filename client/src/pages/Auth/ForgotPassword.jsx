@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../firebase/auth';
 import { Input, Button, Logo } from '../../components';
 
 export default function ForgotPassword() {
@@ -16,19 +16,16 @@ export default function ForgotPassword() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
     setLoading(true);
-
-    const result = await forgotPassword(email);
-    if (result.success) {
-      setSuccess("Reset link sent. Please check your email.");
-    } else {
-      setError(result.error);
+    try {
+        await forgotPassword(email);
+        setSuccess('Check your email for the password reset link!');
+    } catch (error) {
+        setError(error.message);
+    } finally {
+        setLoading(false);
     }
-
-    setLoading(false);
-  };
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] px-4">

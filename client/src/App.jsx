@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { useAuth } from './firebase/auth';
 import { ThemeProvider, Layout } from './components';
 
 // Pages
@@ -94,11 +94,9 @@ function AppRoutes() {
 function App() {
   return (
     <Router>
-      <AuthProvider>
         <ThemeProvider>
           <AppRoutes />
         </ThemeProvider>
-      </AuthProvider>
     </Router>
   );
 }
